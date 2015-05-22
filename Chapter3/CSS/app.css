@@ -5,7 +5,7 @@ html{
 }
 
 body {
-    padding-top: 69px;
+    padding-top: 70px;
     padding-bottom: 20px;
     min-height: 100%;
     font-size: 13px;
@@ -59,8 +59,10 @@ input[type="checkbox"].input-validation-error {
     border-color: #4eaded;
 }
 
-.navbar-default.top-navbar h1{
-    color:white;
+.navbar-default.top-navbar h1 {
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 /*styles for top nav bar - end*/
 
@@ -69,44 +71,9 @@ input[type="checkbox"].input-validation-error {
     width:100%;
     max-width:100%;
 }
-
-.container .start-button {
-    background: #4eaded;
-    text-align: center;
-    font-size: 11em;
-    line-height: 250px;
-    border-radius: 200px;
-    width: 600px;
-    height: 250px;
-    margin-top: 100px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.container .start-button a{
-    color:white;
-    text-decoration:none;
-}
-
-.left-nav-bar {
-    position: fixed;
-    color: white;
-    height: 100%;
-    background-color: #4eaded;
-}
-.right-nav-bar {
-    position: fixed;
-    height: 100%;
-    background-color: #e7e7e7;
-    right: 0px;
-    color: white;
-}
-.workout-content{
-    padding:30px;
-}
-.workout-content .workout-display-div{
-    padding:40px;
+.workout-display-div{
     text-align:center;
+    padding:40px;
 }
 .workout-display-div .img-responsive{
     margin: 25px auto;
@@ -117,47 +84,107 @@ input[type="checkbox"].input-validation-error {
 .workout-display-div .time-progress{
     margin-top:40px;
 }
-.workout-content .next-workout-display {
-    background-color: #e7e7e7;
-    position: fixed;
-    bottom: 0px;
-    padding: 15px;
-    margin: 0px -30px;
-    width: 100%;
-}
-.next-workout-display  h2{
-    margin:0px;
-}
-.workout-circle {
-    border-radius: 50%;
-    width: 26px;
-    height: 26px;
-    display: inline-block;
-    float: left;
-    border: 1px solid #4eaded;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.workout-circle.active{
-    background-color:#4eaded;
-}
-.rest-circle.active{
-    background-color:#4eaded;
-}
-.rest-circle {
-    border-radius: 50%;
-    width: 14px;
-    height: 14px;
-    display: inline-block;
-    float: left;
-    border:1px solid #4eaded;
-    margin: 6px 13px;
-}
-.last-indication .rest-circle{
-    display:none;
-}
-.indication-circles{
-    width:100%;
-    float:left;
-}
 /*styles for container - end*/
+
+/*Styles for start page - start*/
+.text-center{
+    color:#4eaded;
+}
+#start{
+    text-align:center;
+    margin-top:25px;
+}
+#start a {
+    text-decoration: none;
+    font-size: 67px;
+    color:#4eaded;
+}
+#start a:hover{
+    color:#4eaded;
+}
+#start a .glyphicon {
+    top:8px;
+}
+/*Styles for start page - end*/
+
+/*Styles for workout page - start*/
+.workout-app-container{
+    padding-top:15px;
+}
+
+#video-panel .panel-body{
+    max-height:650px;
+    overflow:auto;
+}
+#pause-overlay {
+    position:absolute;
+    top:0px;
+    width:100%;
+    height:100%;
+    opacity:0;      /*Comment this line to try our mouse event based pause and resume. */
+    z-index:10;
+}
+
+/*Comment this style to try our mouse event based pause and resume. */
+#pause-overlay:hover {
+   opacity:.8;
+}
+#pause-overlay .pause{
+    font-size:120pt;
+    width:140px;
+    height:140px;
+    color:#4eaded;
+}
+.absolute-center {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+/*animation*/
+div[ng-view] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+div[ng-view].ng-enter,
+div[ng-view].ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+div[ng-view].ng-enter {
+    left: 100%; /*initial css for view transition in*/
+}
+
+div[ng-view].ng-leave {
+    left: 0; /*initial css for view transition out*/
+}
+
+div[ng-view].ng-enter-active {
+    left: 0; /*final css for view transition in*/
+}
+
+div[ng-view].ng-leave-active {
+    left: -100%; /*final css for view transition out*/
+}
+
+.video-image.ng-enter,
+.video-image.ng-move {
+    -webkit-animation: bounceIn 1s;
+    -moz-animation: bounceIn 1s;
+    -ms-animation: bounceIn 1s;
+    animation: bounceIn 1s;
+}
+
+.video-image.ng-leave {
+    -webkit-animation: bounceOut 1s;
+    -moz-animation: bounceOut 1s;
+    -ms-animation: bounceOut 1s;
+    animation: bounceOut 1s;
+}
+
+/*Styles for workout page - end*/
